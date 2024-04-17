@@ -1,11 +1,10 @@
-import client from '@api/client';
-
-import { ActivitiesParams } from './types';
+import client from "@/app/api/client";
+import { ActivitiesParams } from "./types";
 
 export const fetchActivities = ({ userId }: ActivitiesParams) => {
-  const params = new URLSearchParams({
-    userId,
-  });
+    const params = new URLSearchParams({
+        userId,
+    });
 
-  return client.get(`/activities?${params.toString()}`);
+    return client.get(`/activities?${params.toString()}`);
 };

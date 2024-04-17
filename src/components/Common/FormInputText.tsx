@@ -1,6 +1,5 @@
 import { useState } from "react";
-
-import { VisibilityOff, Visibility } from "@mui/icons-material";
+import { VisibilityOff, Visibility } from "@mui/icons-material"; // 아이콘을 불러옴
 import { IconButton, InputAdornment, TextField, TextFieldProps } from "@mui/material";
 import { useController, FieldValues, FieldPath, UseControllerProps } from "react-hook-form";
 
@@ -21,9 +20,13 @@ export const FormInputText = <
         field: { value, onChange, ...field },
         fieldState: { error },
     } = useController(props);
-    const [showPassword, setShowPassword] = useState(textFieldProps?.type === "password");
 
-    const handleClickShowPassword = () => setShowPassword((show) => !show);
+    const [showPassword, setShowPassword] = useState(textFieldProps?.type === "password"); // showPassword 상태 설정
+
+    const handleClickShowPassword = () => {
+        setShowPassword((show) => !show); // 상태 토글
+    };
+
     const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
     };
@@ -40,7 +43,7 @@ export const FormInputText = <
                                 onClick={handleClickShowPassword}
                                 onMouseDown={handleMouseDownPassword}
                             >
-                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                                {showPassword ? <VisibilityOff /> : <Visibility />} {/* 상태에 따라 아이콘 변경 */}
                             </IconButton>
                         </InputAdornment>
                     ) : undefined,

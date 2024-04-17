@@ -1,0 +1,10 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "jsx": "react-jsx",
+        "composite": true,
+        "declaration": true
+    },
+    "include": ["src/**/*", "src/**/*.spec.js", "src/**/*.json", "@types/*", ".storybook/*", "jest.setup.ts"]
+}

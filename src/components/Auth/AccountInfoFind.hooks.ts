@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import usePasswordReset from "@/hooks/remote/mutation/usePasswordReset";
 import useSendPasswordResetEmail from "@/hooks/remote/mutation/useSendPasswordResetEmail";
-import { showToast } from "@/hooks/remote/toastUtils";
+import { showToast } from "@/hooks/toast/toastUtils";
 
 export interface AccountInfoFindEmailForm {
     email: string;

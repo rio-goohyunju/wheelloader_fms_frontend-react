@@ -2,11 +2,17 @@
     "name": "wheelloader_fms_frontend-react",
     "version": "0.1.0",
     "private": true,
+    "resolutions": {
+        "@storybook/core-common/webpack": "^5",
+        "@storybook/core-server/webpack": "^5",
+        "@storybook/react/webpack": "^5"
+    },
     "scripts": {
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "storybook": "yarn workspace @common/components storybook"
     },
     "dependencies": {
         "@craco/craco": "^6.4.5",
@@ -23,6 +29,14 @@
         "@mui/system": "^5.14.3",
         "@mui/x-data-grid": "^6.5.0",
         "@mui/x-date-pickers": "^6.18.4",
+        "@storybook/addon-essentials": "^7.4.3",
+        "@storybook/addon-interactions": "^7.4.3",
+        "@storybook/addon-links": "^7.4.3",
+        "@storybook/addon-onboarding": "^1.0.8",
+        "@storybook/blocks": "^7.4.3",
+        "@storybook/react": "^7.4.3",
+        "@storybook/react-webpack5": "^7.4.3",
+        "@storybook/testing-library": "^0.2.1",
         "@tanstack/react-query": "^5.18.0",
         "@types/react-cookies": "^0.1.0",
         "@typescript-eslint/parser": "^5.0.0",
@@ -105,6 +119,7 @@
         "es6-error": "^4.1.1",
         "eslint": "^8.38.0",
         "fast-xml-parser": "^3.21.1",
+        "eslint-plugin-storybook": "^0.6.13",
         "html-webpack-plugin": "^5.5.3",
         "https-browserify": "^1.0.0",
         "ipaddr.js": "^2.0.1",
@@ -118,6 +133,7 @@
         "react-app-rewired": "^2.2.1",
         "react-error-overlay": "6.0.9",
         "sass": "^1.62.0",
+        "storybook": "^7.4.6",
         "stream-browserify": "^3.0.0",
         "stream-http": "^3.2.0",
         "styled-components": "^5.3.9",

@@ -1,11 +1,13 @@
+"use client";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Box, Button, Typography } from "@mui/material";
 import * as yup from "yup";
 import { useLocation } from "react-router-dom";
-import { useHandleSubmit } from "./Auth/Signin.hooks";
-import { FormInputText } from "./Common/FormInputText";
+// import { useHandleSubmit } from "./Auth/Signin.hooks";
+
 import Link from "next/link";
+import { FormInputText } from "./Common/FormInputText";
 
 const schema = yup.object().shape({
     email: yup.string().email("유효한 이메일을 입력하세요").required("이메일을 입력하세요"),
@@ -21,11 +23,9 @@ const Login = () => {
         },
     });
 
-    const { pathname } = useLocation();
+    // const { submit } = useHandleSubmit("DashboardPage");
 
-    const { submit } = useHandleSubmit("signin");
-
-    const onSubmit = (data:any) => {
+    const onSubmit = (data: any) => {
         submit(data);
     };
 
@@ -35,19 +35,24 @@ const Login = () => {
                 <FormInputText
                     name="email"
                     control={control}
-                    label="아이디"
-                    fullWidth
-                    autoFocus
-                    placeholder="이메일 주소를 입력해주세요"
+                    defaultValue=""
+                    textFieldProps={{
+                        label: "이메일 주소",
+                        fullWidth: true,
+                        autoFocus: true,
+                        placeholder: "이메일 주소를 입력해주세요",
+                    }}
                 />
-
                 <FormInputText
                     name="password"
                     control={control}
-                    label="비밀번호"
-                    fullWidth
-                    type="password"
-                    placeholder="비밀번호를 입력해주세요"
+                    defaultValue=""
+                    textFieldProps={{
+                        label: "비밀번호",
+                        fullWidth: true,
+                        placeholder: "비밀번호를 입력해주세요",
+                        type: "password",
+                    }}
                 />
 
                 <Button type="submit" variant="contained" size="large" fullWidth>

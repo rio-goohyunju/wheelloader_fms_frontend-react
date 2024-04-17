@@ -1,5 +1,5 @@
-import client from '@api/client';
+import client from "../client";
 
 export const fetchAlarmSettings = () => {
-  return client.get(`/alarm-setting`);
+    return client.get(`/alarm-setting`);
 };

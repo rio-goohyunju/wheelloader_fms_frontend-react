@@ -1,17 +1,21 @@
+"use client";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Box, Button, Link, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import * as yup from "yup";
 
-import emailSchema from "../hooks/yupSchema/emailSchema";
-import passwordSchema from "../hooks/yupSchema/passwordSchema";
-
 import { FormInputText } from "../Common/FormInputText";
 
 import { useHandleSubmit } from "./Signin.hooks";
-import { SigninFormValue } from "./Signin";
 
+import passwordSchema from "@/hooks/yupSchema/passwordSchema";
+import emailSchema from "@/hooks/yupSchema/emailSchema";
+
+export interface SigninFormValue {
+    email: string;
+    password: string;
+}
 const schema = yup.object({
     email: emailSchema,
     password: passwordSchema,
