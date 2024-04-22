@@ -1,6 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
-import Login from "@/components/Login";
+import Login from "@/pages/Login";
 import { QueryClient } from "@tanstack/react-query";
 const queryClient = new QueryClient();
 
@@ -34,11 +33,7 @@ export default function Home() {
                 </div>
 
                 <div style={{ flex: 1, width: "50%" }}>
-                    <h1 style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "1rem" }}>Welcome to Next.js</h1>
-                    <p style={{ fontSize: "1rem", marginBottom: "1rem" }}>
-                        Get started by editing <code>pages/index.js</code>
-                    </p>
-                    <Login />
+                    <Login type={""} />
                 </div>
             </div>
         </main>

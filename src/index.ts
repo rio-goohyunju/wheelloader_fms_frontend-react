@@ -7,7 +7,7 @@ import {
   QueryCache,
   QueryClient,
   QueryClientProvider,
-} from '../tanstack/react-query';
+} from '@tanstack/react-query';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import { CookiesProvider } from 'react-cookie';
@@ -17,18 +17,11 @@ import { RouterProvider } from 'react-router-dom';
 import { AuthProvider } from './hooks/constate/AuthContext';
 import { StyledToastContainer } from './hooks/toast/toastStyle';
 // import { worker } from './mocks/worker';
-import { router } from './routes';
+import { ThemeProvider } from './theme';
 
-import 'dayjs/locale/ko';
-
-// if (process.env.REACT_APP_ENV === 'dev') {
-//   worker.start();
-// }
-
-const rootElement = document.getElementById('root');
-const root = ReactDOM.createRoot(rootElement as HTMLElement);
-dayjs.locale('ko');
-dayjs.extend(duration);
+if (process.env.REACT_APP_ENV === 'dev') {
+  worker.start();
+}
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,10 +30,27 @@ const queryClient = new QueryClient({
   queryCache: new QueryCache(),
 });
 
-root.render(
-  <QueryClientProvider>
-    <ThemeProvider>
-      <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ko">
+const rootElement = document.getElementById('root');
+
+if (rootElement) {
+  if (ReactDOM.createRoot) {
+    // React 18
+    ReactDOM.createRoot(rootElement).render(<App />);
+  } else {
+    // React 17 and below
+    ReactDOM.render(<App />, rootElement);
+  }
+} else {
+  console.error('Root element not found');
+}
+
+dayjs.locale('ko');
+dayjs.extend(duration);
+
+ReactDOM.createRoot(rootElement).render(
+  <CookiesProvider>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider>
         <AuthProvider>
           <CookiesProvider>
             <StyledToastContainer newestOnTop />
@@ -49,5 +59,5 @@ root.render(
         </AuthProvider>
       </LocalizationProvider>
     </ThemeProvider>
-  </QueryClientProvider>
+    </QueryClientProvider>
 );

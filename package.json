@@ -15,6 +15,9 @@
         "storybook": "yarn workspace @common/components storybook"
     },
     "dependencies": {
+        "@common/components": "workspace:*",
+        "@common/styles": "workspace:*",
+        "@common/utils": "workspace:*",
         "@craco/craco": "^6.4.5",
         "@craco/types": "^7.1.0",
         "@emotion/react": "^11.10.6",

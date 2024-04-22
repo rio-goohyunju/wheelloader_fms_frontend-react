@@ -1,7 +1,8 @@
 import { CssBaseline } from "@mui/material";
-import { ThemeProvider as MUIThemeProvider, createTheme, StyledEngineProvider } from "@mui/material/styles";
+import { ThemeProvider as MUIThemeProvider, createTheme } from "@mui/material/styles";
+import { StyledEngineProvider } from "@mui/material";
 
-import { colors } from "@/common/styles";
+import { colors } from "@common/styles";
 
 import { components } from "./components";
 import { GlobalStyles } from "./globalStyles";
