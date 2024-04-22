@@ -1,11 +1,13 @@
-import { useMutation, UseMutationOptions } from "@tanstack/react-query";
+import { useMutation, UseMutationOptions, UseMutationResult } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 
 import { adminLogin } from "@/api/auth";
 import { adminLoginResponse, PerformLoginParams } from "@/api/auth/types";
 import cookies, { JWT_EXPIRY_TIME } from "../../../../common-utils/cookie";
 
-const useAdminLogin = (options?: UseMutationOptions<adminLoginResponse, AxiosError, PerformLoginParams>) => {
+const useAdminLogin = (
+    options?: UseMutationOptions<adminLoginResponse, AxiosError, PerformLoginParams>
+): UseMutationResult<adminLoginResponse, AxiosError, PerformLoginParams> => {
     const fetcher = async (variable: PerformLoginParams) => {
         try {
             const result = await adminLogin(variable);

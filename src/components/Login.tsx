@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Box, Button, Typography } from "@mui/material";
 import * as yup from "yup";
 import { useLocation } from "react-router-dom";
-// import { useHandleSubmit } from "./Auth/Signin.hooks";
+import { useHandleSubmit } from "./Auth/Signin.hooks";
 
 import Link from "next/link";
 import { FormInputText } from "./Common/FormInputText";
@@ -23,7 +23,7 @@ const Login = () => {
         },
     });
 
-    // const { submit } = useHandleSubmit("DashboardPage");
+    const { submit } = useHandleSubmit("signin");
 
     const onSubmit = (data: any) => {
         submit(data);

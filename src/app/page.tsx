@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import Login from "@/components/Login";
+import { QueryClient } from "@tanstack/react-query";
+const queryClient = new QueryClient();
 
 export default function Home() {
     return (
