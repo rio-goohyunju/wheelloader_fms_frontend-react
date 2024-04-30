@@ -29,7 +29,7 @@ export default function Home() {
                 <div
                     style={{ flex: "1", width: "50%", display: "flex", justifyContent: "center", alignItems: "center" }}
                 >
-                    <Image src="/image 1.png" alt="Logo" width={300} height={300} />
+                    <Image src="/image1.png" alt="Logo" width={300} height={300} />
                 </div>
 
                 <div style={{ flex: 1, width: "50%" }}>
